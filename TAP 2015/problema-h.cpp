@@ -1,5 +1,5 @@
 #include <iostream>   // includes cin to read from stdin and cout to write to stdout
-#include <fstream>
+#include <fstream>   // Para leer o escribir en archivo (acá no se usa)
 #include <string>
 #include <vector>
 #include <algorithm> // Para usar "sort" (C++ 11)
