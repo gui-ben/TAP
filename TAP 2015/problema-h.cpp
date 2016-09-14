@@ -2,9 +2,9 @@
 #include <fstream>   // Para leer o escribir en archivo (acá no se usa)
 #include <string>
 #include <vector>
-#include <algorithm> // Para usar "sort" (C++ 11)
-#include <math.h> // Para usar pow
-#include <iterator>
+#include <algorithm> // Para usar "sort" en un vector y ser felices (C++ 11)
+#include <math.h> // Para elevar un número (pow)
+#include <iterator> // La función que muestra un vector por pantalla usa un iterador
 
 using namespace std;  // since cin and cout are both in namespace std, this saves some text
 
