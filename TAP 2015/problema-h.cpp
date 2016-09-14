@@ -12,7 +12,6 @@ using namespace std;  // since cin and cout are both in namespace std, this save
 int descomponerYComponer(int);
 int problema(int);
 void display_vector(const vector<int> &v);
- 
 
 int problema(int n) {
 /* Idea: Agarro el número, lo descompongo en sus cifras (operando módulo 10) y las meto en un vector, 
@@ -30,7 +29,6 @@ int problema(int n) {
 		n = resultadoResta;
 		cantRestas++;
 	} 
-	
 	return cantRestas;
 }
 
@@ -39,7 +37,7 @@ int problema(int n) {
 
 int descomponerYComponer(int n) {
 	vector<int> digitos;
-	
+	// Descompongo el n
 	while (n > 0) {
                 int digito = n % 10;
 		digitos.push_back(digito);
@@ -50,23 +48,23 @@ int descomponerYComponer(int n) {
 
         display_vector(digitos); // Testin'
 
-	//cout << "termine primer while";
+	//cout << "termine primer while"; // Testin'
+	// Compongo el nuevo número
 	int nuevoN = 0;
 	int i = digitos.size() - 1;
 	int exponente = 0;
 
-	while (i >= 0) {
-		nuevoN += digitos[i] * pow(10, exponente);
-		i--;
-		exponente++;
+	while (i >= 0) { 
+		nuevoN += digitos[i] * pow(10, exponente);  // Para armar el número
+		i--;                                        // recorro el vector de atrás hacia adelante 
+		exponente++;			            // y voy sumando cada dígito elevato a la potencia de 10 correspondiente.
 	}
-	//cout << "termine segudno while";
+	//cout << "termine segudno while"; // Testin'
 	return nuevoN;
-
 }
 
 
-void display_vector(const vector<int> &v) {
+void display_vector(const vector<int> &v) {  // Testin'
         cout << "< ";
         std::copy(v.begin(), v.end(),
             std::ostream_iterator<int>(std::cout, " "));
