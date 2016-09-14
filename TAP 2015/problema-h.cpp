@@ -8,7 +8,7 @@
 
 using namespace std;  // since cin and cout are both in namespace std, this saves some text
 
-
+// Defino las funciones acá para que el compilador no se queje:
 int descomponerYComponer(int);
 int problema(int);
 void display_vector(const vector<int> &v);
@@ -22,39 +22,41 @@ int problema(int n) {
 */	
 	int nuevoNumero = 0;
 	int cantRestas = 0;
+        int resultadoResta = n;
 
-	while (n - nuevoNumero > 0) {
+	while (resultadoResta != 0) {
 		nuevoNumero = descomponerYComponer(n);
-		int resultadoResta = n - nuevoNumero;
+	        resultadoResta = n - nuevoNumero;
 		n = resultadoResta;
 		cantRestas++;
 	} 
 	
 	return cantRestas;
-
 }
+
 
 // Funciones auxiliares:
 
 int descomponerYComponer(int n) {
 	vector<int> digitos;
 	
-	while (n / 10 >= 1) {
-		digitos.push_back(n%10);
-		n = n / 10;		
+	while (n > 0) {
+                int digito = n % 10;
+		digitos.push_back(digito);
+		n = (int) n / 10;		
 	}
 	
 	sort(digitos.begin(), digitos.end());
 
-	display_vector(digitos);
+        display_vector(digitos); // Testin'
 
 	//cout << "termine primer while";
-	int nuevoN;
+	int nuevoN = 0;
 	int i = digitos.size() - 1;
 	int exponente = 0;
 
 	while (i >= 0) {
-		nuevoN = digitos[i] * pow(10, exponente);
+		nuevoN += digitos[i] * pow(10, exponente);
 		i--;
 		exponente++;
 	}
@@ -65,18 +67,20 @@ int descomponerYComponer(int n) {
 
 
 void display_vector(const vector<int> &v) {
-    std::copy(v.begin(), v.end(),
-        std::ostream_iterator<int>(std::cout, " "));
+        cout << "< ";
+        std::copy(v.begin(), v.end(),
+            std::ostream_iterator<int>(std::cout, " "));
+        cout << ">" << endl;
 }
 
 
 
-// Para correrlo: g++ -g -O2 -std=gnu++11 Problema\ H\ -\ Haciendo\ la\ tarea.cpp -o proble& ./problema
+// Para correrlo: g++ -g -O2 -std=gnu++11 problema-h.cpp -o problema ./problema
 
 int main() {
         int n;
         cin >> n;  // Pasarle el int por la terminal
         cout << problema(n) << endl;
-  
+//      cout << descomponerYComponer(n) << endl; // Testin' 
         return 0;
 }
