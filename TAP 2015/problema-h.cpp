@@ -8,7 +8,7 @@
 
 using namespace std;  // since cin and cout are both in namespace std, this saves some text
 
-// Defino las funciones acá para que el compilador no se queje:
+// Defino las funciones acá para que el compilador no se queje (no da hacer un .h):
 int descomponerYComponer(int);
 int problema(int);
 void display_vector(const vector<int> &v);
